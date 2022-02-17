@@ -27,5 +27,7 @@ jobs:
 
       - name: build docker
         run: |
-         ./mipsdump.exe --help
+         ./mipsdump.exe --disassemble-all mipsgcc.exe > mipsgcc.txt
 
+      - name: read
+        run: cat mipsgcc.txt
