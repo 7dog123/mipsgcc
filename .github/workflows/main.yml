@@ -28,7 +28,7 @@ jobs:
       - name: build docker
         run: |
          ./mipsgcc.exe --version
-         ./mipsgxx.exe --version
+         ./mipscpp.exe --version
          ./make.exe --version
-         ./mipsar --version
+         ./mipsld.exe --version
 
