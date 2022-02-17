@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -27,7 +27,9 @@ jobs:
 
       - name: build docker
         run: |
-         objdump -p mipsgcc.exe > mipsgcc.txt
+         wget https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-ubuntu-64b.tar.xz
+         tar -xf retdec-v4.0-ubuntu-64b.tar.xz
+         ls
 
-      - name: read
-        run: cat mipsgcc.txt
+#      - name: read
+   #     run: cat mipsgcc.txt
