@@ -37,5 +37,7 @@ jobs:
          export PATH=$RETDEC_INSTALL_DIR/bin
 
       - name: dissasemble mipsgcc.exe
-        run: python3 retdec/bin/retdec-decompiler.py mipsgcc.exe
+        run: |
+         python3 retdec/bin/retdec-decompiler.py mipsgcc.exe
+         ls
 
