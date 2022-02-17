@@ -25,11 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: build docker
+      - name: install ret decompiler
         run: |
-         wget https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-ubuntu-64b.tar.xz
+         wget -q https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-ubuntu-64b.tar.xz
          tar -xf retdec-v4.0-ubuntu-64b.tar.xz
-         ls
+         export RETDEC_INSTALL_DIR=retdec
+         export PATH=$RETDEC_INSTALL_DIR/bin
 
-#      - name: read
-   #     run: cat mipsgcc.txt
+      - name: dissasemble mipsgcc.exe
+        run: retdec-decompiler mipsgcc.exe
+
