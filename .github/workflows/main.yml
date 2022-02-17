@@ -25,6 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: install deps
+        run: |
+         sudo apt-get update
+         sudo apt-get -y install openssl libssl-dev python3 autoconf automake libtool pkg-config m4 zlib1g-dev upx
       - name: install ret decompiler
         run: |
          wget -q https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-ubuntu-64b.tar.xz
@@ -33,5 +37,5 @@ jobs:
          export PATH=$RETDEC_INSTALL_DIR/bin
 
       - name: dissasemble mipsgcc.exe
-        run: retdec-decompiler.py mipsgcc.exe
+        run: python3 retdec/bin/retdec-decompiler.py mipsgcc.exe
 
