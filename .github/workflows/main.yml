@@ -27,7 +27,7 @@ jobs:
 
       - name: build docker
         run: |
-         objdump -f mipsgcc.exe > mipsgcc.txt
+         objdump -p mipsgcc.exe > mipsgcc.txt
 
       - name: read
         run: cat mipsgcc.txt
