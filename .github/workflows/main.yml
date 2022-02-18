@@ -31,14 +31,14 @@ jobs:
           msystem: MINGW64
           install: |
             base-devel cmake git openssl python3 autoconf automake libtool pkg-config m4 zlib upx
-            p7zip
+            p7zip unzip
           update: true
           shell: msys2 {0}
 
       - name: install ret decompiler
         run: |
-         curl https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-windows-64b.7z
-         ./7zip/x64/7za.exe x retdec-v4.0-windows-64b.7z
+         curl https://github.com/avast/retdec/releases/download/v3.3/retdec-v3.3-windows-64b.zip
+         unzip retdec-v3.3-windows-64b.zip
 
       #- name: dissasemble mipsgcc.exe
       #  run: |
