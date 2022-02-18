@@ -27,10 +27,11 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: gdb run mipsgcc.exe
+        run: curl -L -o radare2.zip https://github.com/radareorg/radare2/releases/download/5.6.2/radare2-5.6.2-w64.zip
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+         ./7zip/7za.exe x radare2.zip
+         cd radare2-5.6.2-w64
+         dir
