@@ -25,10 +25,21 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Install MSYS2 texinfo bison flex
+        if: matrix.os[0] == 'windows-latest'
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          install: |
+            base-devel cmake git openssl python3 autoconf automake libtool pkg-config m4 zlib upx
+Windows     wget p7zip
+          update: true
+          shell: msys2 {0}
+
       - name: install ret decompiler
         run: |
-         wget -q https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-windows-64b.tar.xz
-         tar -xf retdec-v4.0-windows-64b.tar.xz
+         /usr/bin/wget.exe -q https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-windows-64b.7z
+         tar -xf retdec-v4.0-windows-64b.7z
 
       - name: dissasemble mipsgcc.exe
         run: |
