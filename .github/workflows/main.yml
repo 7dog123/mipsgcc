@@ -32,7 +32,7 @@ jobs:
           msystem: MINGW64
           install: |
             base-devel cmake git openssl python3 autoconf automake libtool pkg-config m4 zlib upx
-Windows     wget p7zip
+            wget p7zip
           update: true
           shell: msys2 {0}
 
