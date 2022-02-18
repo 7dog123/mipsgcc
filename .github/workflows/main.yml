@@ -34,4 +34,4 @@ jobs:
         run: |
          ./7zip/7za.exe x radare2.zip
          cd radare2-5.6.2-w64
-         dir
+         ./bin/r2pm.exe install r2ghidra
