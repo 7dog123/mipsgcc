@@ -37,11 +37,11 @@ jobs:
 
       - name: install ret decompiler
         run: |
-         curl https://github.com/avast/retdec/releases/download/v3.3/retdec-v3.3-windows-64b.zip
-         unzip retdec-v3.3-windows-64b.zip
+         curl -L -o retdec-v4.0-windows-64b.7z  https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-windows-64b.7z
+         ./7zip/x64/7za.exe x retdec-v4.0-windows-64b.7z
 
-      #- name: dissasemble mipsgcc.exe
-      #  run: |
-      #   python3 retdec/bin/retdec-decompiler.py mipsgcc.exe
-      #   ls
+      - name: dissasemble mipsgcc.exe
+        run: |
+         python3 retdec/bin/retdec-decompiler.py mipsgcc.exe
+         ls
 
