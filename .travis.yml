@@ -4,6 +4,12 @@ arch:
   - amd64
   - i386
 
+jobs:
+  include:
+    - name: "Python 3.8.0 on Windows"
+      before_install:
+          - choco install python --version 3.8.0
+
 os: windows
 
 scripts: 
