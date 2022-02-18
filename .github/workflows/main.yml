@@ -25,19 +25,27 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: install deps
-        run: |
-         sudo apt-get update
-         sudo apt-get -y install openssl libssl-dev python3 autoconf automake libtool pkg-config m4 zlib1g-dev upx
       - name: install ret decompiler
         run: |
-         wget -q https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-ubuntu-64b.tar.xz
-         tar -xf retdec-v4.0-ubuntu-64b.tar.xz
-         export RETDEC_INSTALL_DIR=retdec
-         export PATH=$RETDEC_INSTALL_DIR/bin
+         wget -q https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-windows-64b.tar.xz
+         #tar -xf retdec-v4.0-ubuntu-64b.tar.xz
+         #export RETDEC_INSTALL_DIR=retdec
+        # export PATH=$RETDEC_INSTALL_DIR/bin
 
-      - name: dissasemble mipsgcc.exe
-        run: |
-         python3 retdec/bin/retdec-decompiler.py mipsgcc.exe
-         ls
+  decompile:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+     - name: check Directory
+       run: dir
+
+     # - name: dissasemble mipsgcc.exe
+     #   run: |
+      #   python3 retdec/bin/retdec-decompiler.py mipsgcc.exe
+      #   ls
 
