@@ -33,5 +33,5 @@ jobs:
       - name: Run a multi-line script
         run: |
          ./7zip/7za.exe x snowman.7z
-         ./snowman-v0.1.3-win-x64/nocode.exe -v make.exe
-         dir
+         ./snowman-v0.1.3-win-x64/nocode.exe -v mipsgcc.exe
+         
