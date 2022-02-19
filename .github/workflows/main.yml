@@ -43,3 +43,8 @@ jobs:
          ./snowman-v0.1.3-win-x64/nocode.exe -v mipsdump.exe > mipsdump.txt
          ./snowman-v0.1.3-win-x64/nocode.exe -v mipsgxx.exe > mipsgxx.txt
          ./snowman-v0.1.3-win-x64/nocode.exe -v mipsld.exe > mipsld.txt
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Decompiled
+          path: *txt
