@@ -48,3 +48,8 @@ jobs:
         run: |
          tar -zcvf decompile.tar.gz *txt
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: decompiled
+          path: decompile.tar.gz
+
