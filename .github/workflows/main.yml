@@ -38,7 +38,7 @@ jobs:
         run: |
          ./snowman-v0.1.3-win-x64/nocode.exe -v mipsgcc.exe > gccmips.txt
  
-         - name: decompile make.exe
+      - name: decompile make.exe
         run: |
          ./snowman-v0.1.3-win-x64/nocode.exe -v make.exe  > make.txt
 
