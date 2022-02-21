@@ -33,8 +33,8 @@ jobs:
       - name: install ghidra
         run: |
          curl -L -o ghidra.zip  https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.2_build/ghidra_10.1.2_PUBLIC_20220125.zip
-         unzip ghidra.zip
-         ./ghidra_10.1.2_PUBLIC/support/sleigh
+         unzip -q ghidra.zip
+         ./ghidra_10.1.2_PUBLIC/support/analyzeHeadless
 
       #- name: dissasemble mipsgcc.exe
        # run: |
