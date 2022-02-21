@@ -18,28 +18,25 @@ jobs:
   # This workflow contains a single job called "build"
   decompile:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Install MSYS2 texinfo bison flex
-        uses: msys2/setup-msys2@v2
-        with:
-          msystem: MINGW64
-          install: |
-            base-devel cmake git openssl python3 autoconf automake libtool pkg-config m4 zlib upx
-            p7zip unzip
-          update: true
-          shell: msys2 {0}
+      - name: install unzip
+        run: |
+         sudo apt-get update
+         sudo apt-get -y install unzip
 
-      - name: install ret decompiler
+      - name: install ghidra
         run: |
-         curl -L -o retdec-v4.0-windows-64b.7z  https://github.com/avast/retdec/releases/download/v4.0/retdec-v4.0-windows-64b.7z
-         ./7zip/x64/7za.exe x retdec-v4.0-windows-64b.7z
-      - name: dissasemble mipsgcc.exe
-        run: |
-         python3 retdec/bin/retdec-decompiler.py mipsgcc.exe
-         ls
+         curl -L -o ghidra.zip  https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.2_build/ghidra_10.1.2_PUBLIC_20220125.zip
+         unzip ghidra.zip
+         ./ghidra_10.1.2_PUBLIC/support/sleigh
+
+      #- name: dissasemble mipsgcc.exe
+       # run: |
+      #   python3 retdec/bin/retdec-decompiler.py mipsgcc.exe
+       #  ls
